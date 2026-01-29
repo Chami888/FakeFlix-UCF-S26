@@ -1,3 +1,10 @@
+/**
+ * Search page component responsible for displaying search results.
+ * It retrieves the current search input value from Redux and renders
+ * a list of movie or TV show posters with animation effects.
+ * If no results are found, a fallback message is displayed.
+ */
+
 import "./search.scss"
 import Poster from "../../components/Poster/Poster";
 import { motion } from "framer-motion";
@@ -5,8 +12,12 @@ import { staggerHalf } from "../../motionUtils";
 import { useSelector } from "react-redux";
 import { selectSearchInputValue } from "../../redux/search/search.selectors";
 
+// Search component that renders search results based on user input.
+// It receives search results as props and conditionally displays content.
 const Search = searchResults => {
+	// Extract search results from props
 	const { results } = searchResults;
+	// Retrieve the current search input value from Redux store
 	const selectInputValue = useSelector(selectSearchInputValue);
 
 	return (
